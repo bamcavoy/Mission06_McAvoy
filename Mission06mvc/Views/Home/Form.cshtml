@@ -5,21 +5,21 @@
 
 <h1>Add a movie to the collection</h1>
 
-<form>
+<form method="post">
     <label asp-for="MovieTitle">Title:</label>
-    <input asp-for="MovieTitle"/>
+    <input asp-for="MovieTitle" required/>
     <br />
     <label asp-for="MovieYear">Year:</label>
-    <input asp-for="MovieYear"/>
+    <input asp-for="MovieYear" required/>
     <br />
     <label asp-for="MovieDirector">Director:</label>
-    <input asp-for="MovieDirector"/>
+    <input asp-for="MovieDirector" required/>
     <br />
     <label asp-for="MovieCategory">Category:</label>
-    <input asp-for="MovieCategory"/>
+    <input asp-for="MovieCategory" required/>
     <br />
     <label asp-for="MovieRating">Rating:</label>
-    <select asp-for="MovieRating">
+    <select asp-for="MovieRating" required>
         <option value="TV-Y7">TV-Y7</option>
         <option value="TV-G">TV-G</option>
         <option value="TV-PG">TV-PG</option>
@@ -38,6 +38,7 @@
     <select asp-for="MovieEdited">
         <option value="false"></option>
         <option value="true">Yes</option>
+        <option value="false">No</option>
     </select>
     <br />
     <label asp-for="MovieLentTo">Lent to: <div style="color: grey;">(optional)</div></label>

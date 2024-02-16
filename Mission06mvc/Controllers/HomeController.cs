@@ -28,6 +28,10 @@ namespace Mission06mvc.Controllers
             return View();
         }
 
-
+        [HttpPost]
+        public IActionResult Form(Movie newMovie)
+        {
+            return View("Confirmation", newMovie);
+        }
     }
 }
