@@ -1,7 +1,11 @@
-﻿namespace Mission06mvc.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Mission06mvc.Models
 {
     public class Movie
     {
+        [Key]
+        [Required]
         public int MovieID { get; set;}
         public string MovieTitle { get; set;}
         public int MovieYear { get; set;}
