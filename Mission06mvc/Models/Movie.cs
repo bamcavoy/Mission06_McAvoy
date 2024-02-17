@@ -2,6 +2,8 @@
 
 namespace Mission06mvc.Models
 {
+
+    //Movie class
     public class Movie
     {
         [Key]

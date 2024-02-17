@@ -5,6 +5,8 @@
 
 <h1>Add a movie to the collection</h1>
 
+
+@* movie form *@
 <form method="post">
     <label asp-for="MovieTitle">Title:</label>
     <input asp-for="MovieTitle" required/>
@@ -32,7 +34,6 @@
         <option value="UR">UR</option>
         <option value="NR">NR</option>
     </select>
-
     <br />
     <label asp-for="MovieEdited">Edited? <div style="color: grey;">(optional)</div></label>
     <select asp-for="MovieEdited">

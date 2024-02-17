@@ -27,12 +27,15 @@ namespace Mission06mvc.Controllers
             return View();
         }
 
+        //what to do when movie is added to list
         [HttpPost]
         public IActionResult Form(Movie newMovie)
         {
+            //add to db
             _context.Movies.Add(newMovie);
             _context.SaveChanges();
 
+            //show confirmation window and pass movie details
             return View("Confirmation", newMovie);
         }
     }
