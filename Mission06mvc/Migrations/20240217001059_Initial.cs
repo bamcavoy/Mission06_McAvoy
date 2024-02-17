@@ -21,9 +21,9 @@ namespace Mission06mvc.Migrations
                     MovieDirector = table.Column<string>(type: "TEXT", nullable: false),
                     MovieCategory = table.Column<string>(type: "TEXT", nullable: false),
                     MovieRating = table.Column<string>(type: "TEXT", nullable: false),
-                    MovieEdited = table.Column<bool>(type: "INTEGER", nullable: false),
-                    MovieLentTo = table.Column<string>(type: "TEXT", nullable: false),
-                    MovieNotes = table.Column<string>(type: "TEXT", nullable: false)
+                    MovieEdited = table.Column<bool>(type: "INTEGER", nullable: true),
+                    MovieLentTo = table.Column<string>(type: "TEXT", nullable: true),
+                    MovieNotes = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
