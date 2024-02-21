@@ -1,27 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Add a movie";
 }
-@model Movie
+@model Movie 
+@* Category *@
 
 <h1>Add a movie to the collection</h1>
 
 
 @* movie form *@
 <form method="post">
-    <label asp-for="MovieTitle">Title:</label>
-    <input asp-for="MovieTitle" required/>
+    <label asp-for="Title">Title:</label>
+    <input asp-for="Title" required/>
     <br />
-    <label asp-for="MovieYear">Year:</label>
-    <input asp-for="MovieYear" required min="1900" max="2030" />
+    <label asp-for="Year">Year:</label>
+    <input asp-for="Year" required min="1900" max="2030" />
     <br />
-    <label asp-for="MovieDirector">Director:</label>
-    <input asp-for="MovieDirector" required/>
+    <label asp-for="Director">Director:</label>
+    <input asp-for="Director" required/>
     <br />
-    <label asp-for="MovieCategory">Category:</label>
-    <input asp-for="MovieCategory" required/>
+    <label asp-for="Category">Category:</label>
+    <input asp-for="Category" required/>
     <br />
-    <label asp-for="MovieRating">Rating:</label>
-    <select asp-for="MovieRating" required>
+    <label asp-for="Rating">Rating:  <div style="color: grey;">(optional)</div></label>
+    <select asp-for="Rating" required>
         <option value="TV-Y7">TV-Y7</option>
         <option value="TV-G">TV-G</option>
         <option value="TV-PG">TV-PG</option>
@@ -35,18 +36,25 @@
         <option value="NR">NR</option>
     </select>
     <br />
-    <label asp-for="MovieEdited">Edited? <div style="color: grey;">(optional)</div></label>
-    <select asp-for="MovieEdited">
-        <option value="false"></option>
-        <option value="true">Yes</option>
-        <option value="false">No</option>
+    <label asp-for="Edited">Edited? <div style="color: grey;">(optional)</div></label>
+    <select asp-for="Edited">
+        <option value=0></option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>
     </select>
     <br />
-    <label asp-for="MovieLentTo">Lent to: <div style="color: grey;">(optional)</div></label>
-    <input asp-for="MovieLentTo" />
+    <label asp-for="LentTo">Lent to: <div style="color: grey;">(optional)</div></label>
+    <input asp-for="LentTo" />
     <br />
-    <label asp-for="MovieNotes">Notes: <div style="color: grey;">(optional)</div></label>
-    <input asp-for="MovieNotes" maxlength="25"/>
+    <label asp-for="CopiedToPlex">Copied to Plex?</label>
+    <select asp-for="CopiedToPlex">
+        <option value=0></option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>
+    </select>
+    <br />
+    <label asp-for="Notes">Notes: <div style="color: grey;">(optional)</div></label>
+    <input asp-for="Notes" maxlength="25"/>
     <br />
 
 

@@ -9,15 +9,21 @@ namespace Mission06mvc.Models
         [Key]
         [Required]
         public int MovieID { get; set;}
-        public string MovieTitle { get; set;}
-        public int MovieYear { get; set;}
-        public string MovieDirector { get; set;}
-        public string MovieCategory { get; set;}
-        public string MovieRating { get; set;}
-        public bool MovieEdited { get; set;}
-        public string MovieLentTo { get; set;}
-        public string MovieNotes { get; set;}
+        public int CategoryID { get; set; }
+        public string Title { get; set;}
+        public int Year { get; set;}
+        public string Director { get; set;}
+        public string Rating { get; set;}
+        public int Edited { get; set;}
+        public string LentTo { get; set;}
+        public int CopiedToPlex { get; set;}
+        public string Notes { get; set;}
+    }
 
-
+    public class Category
+    {
+        [Key]
+        [Required]
+        public intCategoryID 
     }
 }
