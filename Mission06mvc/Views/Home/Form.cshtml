@@ -15,14 +15,14 @@
     <input asp-for="Title" required/>
     <br /> <br />
     <label asp-for="Year">Year:</label>
-    <input asp-for="Year" required min="1900" max="2030" />
+    <input asp-for="Year" required min="1888" />
     <br /> <br />
     <label asp-for="Director">Director: <div style="color: grey;">(optional)</div></label>
     <input asp-for="Director"/>
     <br /> <br />
     <label asp-for="CategoryId">Category: <div style="color: grey;">(optional)</div></label>
-    <select asp-for"CategoryId">
-        <option value=""></option>
+    <select asp-for="CategoryId" required>
+        <option value="">-- Select Category --</option>
         @foreach(Category c in ViewBag.categories)
         {
             <option value="@c.CategoryId">@c.CategoryName</option>
@@ -31,7 +31,7 @@
     <br /> <br />
     <label asp-for="Rating">Rating:  <div style="color: grey;">(optional)</div></label>
     <select asp-for="Rating">
-        <option value=""></option>
+        <option value="">-- Select Rating --</option>
         <option value="TV-Y7">TV-Y7</option>
         <option value="TV-G">TV-G</option>
         <option value="TV-PG">TV-PG</option>

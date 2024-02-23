@@ -61,6 +61,8 @@ namespace Mission06mvc.Controllers
             var movies = _context.Movies
                 .OrderBy(x => x.Title).ToList();
 
+            ViewBag.categories = _context.Categories.ToList();
+
             return View(movies);
         }
 
