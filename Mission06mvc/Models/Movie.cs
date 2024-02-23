@@ -9,12 +9,14 @@ namespace Mission06mvc.Models
     {
         [Key]
         [Required]
-        public int MovieID { get; set;}
+        public int MovieId { get; set;}
 
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
         public Category Category { get; set; } 
         public string Title { get; set;}
+
+        [Range(1888, int.MaxValue, ErrorMessage = "Year cannot be lower than 1888")]
         public int Year { get; set;}
         public string? Director { get; set;}
         public string? Rating { get; set;}

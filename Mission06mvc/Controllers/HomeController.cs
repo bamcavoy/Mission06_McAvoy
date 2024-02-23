@@ -22,29 +22,92 @@ namespace Mission06mvc.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Form()
         {
-            return View();
+            ViewBag.categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+            return View(new Movie());
         }
 
         //what to do when movie is added to list
         [HttpPost]
         public IActionResult Form(Movie newMovie)
         {
-            //add to db
-            _context.Movies.Add(newMovie);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                //add to db
+                _context.Movies.Add(newMovie);
+                _context.SaveChanges();
 
-            //show confirmation window and pass movie details
-            return View("Confirmation", newMovie);
+                //show confirmation window and pass movie details
+                return View("Confirmation", newMovie);
+            }
+            else // invalid data
+            {
+                ViewBag.categories = _context.Categories
+                    .OrderBy(x => x.CategoryName)
+                    .ToList();
+
+                return View(newMovie);
+            }
+
         }
 
         public IActionResult Collection()
         {
             var movies = _context.Movies
-                .OrderBy(x => x.MovieID).ToList();
+                .OrderBy(x => x.Title).ToList();
 
             return View(movies);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id) 
+        {
+            var movieToEdit = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            ViewBag.categories = _context.Categories
+                .OrderBy(x => x.CategoryName)
+                .ToList();
+
+            return View("Form", movieToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie movie) 
+        { 
+            if (ModelState.IsValid)
+            {
+                _context.Update(movie);
+                _context.SaveChanges();
+                return RedirectToAction("Collection");
+            }
+            else
+            {
+                return View("Form", movie);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id) 
+        {
+            var movieToDelete = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            return View(movieToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Movie movie)
+        {
+            _context.Movies.Remove(movie);
+            _context.SaveChanges();
+
+            return RedirectToAction("Collection");
         }
     }
 }

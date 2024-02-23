@@ -9,18 +9,26 @@
 
 @* movie form *@
 <form method="post">
+    <input type="hidden" asp-for="MovieId" />
+
     <label asp-for="Title">Title:</label>
     <input asp-for="Title" required/>
-    <br />
+    <br /> <br />
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" required min="1900" max="2030" />
-    <br />
+    <br /> <br />
     <label asp-for="Director">Director: <div style="color: grey;">(optional)</div></label>
     <input asp-for="Director"/>
-    <br />
+    <br /> <br />
     <label asp-for="CategoryId">Category: <div style="color: grey;">(optional)</div></label>
-    <input asp-for="CategoryId"/>
-    <br />
+    <select asp-for"CategoryId">
+        <option value=""></option>
+        @foreach(Category c in ViewBag.categories)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
+    <br /> <br />
     <label asp-for="Rating">Rating:  <div style="color: grey;">(optional)</div></label>
     <select asp-for="Rating">
         <option value=""></option>
@@ -36,27 +44,29 @@
         <option value="UR">UR</option>
         <option value="NR">NR</option>
     </select>
-    <br />
+    <br /><br />
     <label asp-for="Edited">Edited?</label>
     <select asp-for="Edited" required>
         <option value=0>No</option>
         <option value=1>Yes</option>
     </select>
-    <br />
+    <br /> <br />
     <label asp-for="LentTo">Lent to: <div style="color: grey;">(optional)</div></label>
     <input asp-for="LentTo" />
-    <br />
+    <br /><br />
     <label asp-for="CopiedToPlex">Copied to Plex?</label>
     <select asp-for="CopiedToPlex" required>
         <option value=0>No</option>
         <option value=1>Yes</option>
     </select>
-    <br />
+    <br /> <br />
     <label asp-for="Notes">Notes: <div style="color: grey;">(optional)</div></label>
     <input asp-for="Notes" maxlength="25"/>
-    <br />
+    <br /> <br />
 
 
     <button type="submit">Add to Collection</button>
+    <br />
+    <div asp-validation-summary="All"></div>
 
 </form>
