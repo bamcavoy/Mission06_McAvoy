@@ -15,14 +15,15 @@
     <label asp-for="Year">Year:</label>
     <input asp-for="Year" required min="1900" max="2030" />
     <br />
-    <label asp-for="Director">Director:</label>
-    <input asp-for="Director" required/>
+    <label asp-for="Director">Director: <div style="color: grey;">(optional)</div></label>
+    <input asp-for="Director"/>
     <br />
-    <label asp-for="Category">Category:</label>
-    <input asp-for="Category" required/>
+    <label asp-for="CategoryId">Category: <div style="color: grey;">(optional)</div></label>
+    <input asp-for="CategoryId"/>
     <br />
     <label asp-for="Rating">Rating:  <div style="color: grey;">(optional)</div></label>
-    <select asp-for="Rating" required>
+    <select asp-for="Rating">
+        <option value=""></option>
         <option value="TV-Y7">TV-Y7</option>
         <option value="TV-G">TV-G</option>
         <option value="TV-PG">TV-PG</option>
@@ -36,21 +37,19 @@
         <option value="NR">NR</option>
     </select>
     <br />
-    <label asp-for="Edited">Edited? <div style="color: grey;">(optional)</div></label>
-    <select asp-for="Edited">
-        <option value=0></option>
-        <option value=1>Yes</option>
+    <label asp-for="Edited">Edited?</label>
+    <select asp-for="Edited" required>
         <option value=0>No</option>
+        <option value=1>Yes</option>
     </select>
     <br />
     <label asp-for="LentTo">Lent to: <div style="color: grey;">(optional)</div></label>
     <input asp-for="LentTo" />
     <br />
     <label asp-for="CopiedToPlex">Copied to Plex?</label>
-    <select asp-for="CopiedToPlex">
-        <option value=0></option>
-        <option value=1>Yes</option>
+    <select asp-for="CopiedToPlex" required>
         <option value=0>No</option>
+        <option value=1>Yes</option>
     </select>
     <br />
     <label asp-for="Notes">Notes: <div style="color: grey;">(optional)</div></label>

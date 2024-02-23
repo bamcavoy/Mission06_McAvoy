@@ -7,7 +7,7 @@ namespace Mission06mvc.Controllers
     public class HomeController : Controller
     {
         private MovieListContext _context;
-        public HomeController(MovieListContext movieListContext)
+        public HomeController(MovieListContext movieListContext) // Constructor
         {
             _context = movieListContext;
         }
@@ -37,6 +37,14 @@ namespace Mission06mvc.Controllers
 
             //show confirmation window and pass movie details
             return View("Confirmation", newMovie);
+        }
+
+        public IActionResult Collection()
+        {
+            var movies = _context.Movies
+                .OrderBy(x => x.MovieID).ToList();
+
+            return View(movies);
         }
     }
 }
